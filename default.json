@@ -1,16 +1,15 @@
 {
-  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": [
-    "config:recommended",
-    "customManagers:githubActionsVersions",
-    "customManagers:helmChartYamlAppVersions",
-    "customManagers:makefileVersions"
-  ],
+	"$schema": "https://docs.renovatebot.com/renovate-schema.json",
+	"extends": [
+		"config:recommended",
+		"customManagers:githubActionsVersions",
+		"customManagers:makefileVersions"
+	],
 	"timezone": "America/Chicago",
-  "schedule": [
-    "before 4am on the first day of the month"
-  ],
-  "packageRules": [
+	"schedule": [
+		"before 4am on the first day of the month"
+	],
+	"packageRules": [
 		{
 			"groupName": "bun",
 			"matchPackageNames": [
@@ -18,5 +17,33 @@
 				"/oven/bun/"
 			]
 		}
-  ]
+	],
+	"customManagers": [
+		{
+			"customType": "regex",
+			"fileMatch": [
+				".pulumi.version",
+				".versions/pulumi"
+			],
+			"matchStrings": [
+				"(?<currentValue>\\S+)"
+			],
+			"depNameTemplate": "pulumi/pulumi",
+			"datasourceTemplate": "github-tags",
+			"extractVersionTemplate": "^v(?<version>.*)"
+		},
+		{
+			"customType": "regex",
+			"fileMatch": [
+        ".versions/kubernetes",
+				".versions/kubectl"
+			],
+			"matchStrings": [
+				"(?<currentValue>\\S+)"
+			],
+			"depNameTemplate": "kubernetes/kubernetes",
+			"datasourceTemplate": "github-tags",
+			"extractVersionTemplate": "^v(?<version>.*)"
+		}
+	]
 }
