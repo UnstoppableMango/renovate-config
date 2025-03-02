@@ -8,7 +8,7 @@ To use the [default](./default.json) preset:
 
 ```json
 {
-  "extends": ["github>UnstoppableMango/renovate-config"]
+	"extends": ["github>UnstoppableMango/renovate-config"]
 }
 ```
 
