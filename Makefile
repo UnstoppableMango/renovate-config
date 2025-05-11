@@ -1,3 +1,4 @@
+BUN_VERSION != cat .versions/bun
 # renovate: datasource=github-tags depName=dprint/dprint
 DPRINT_VERSION ?= 0.50.0
 DPRINT := ${CURDIR}/bin/dprint
@@ -10,7 +11,7 @@ format: bin/dprint
 	$(DPRINT) fmt
 
 bin/bun: .versions/bun | .make/bun/install.sh
-	BUN_INSTALL=${CURDIR} .make/bun/install.sh && rm _bun
+	BUN_INSTALL=${CURDIR} .make/bun/install.sh bun-v${BUN_VERSION} && rm _bun
 
 bin/dprint: | .make/dprint/install.sh
 	DPRINT_INSTALL=${CURDIR} .make/dprint/install.sh ${DPRINT_VERSION}
