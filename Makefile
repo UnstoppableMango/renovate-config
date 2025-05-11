@@ -4,7 +4,7 @@ DPRINT := ${CURDIR}/bin/dprint
 
 # https://github.com/oven-sh/bun/issues/7034
 validate:
-	npx --yes --package renovate -- renovate-config-validator --strict default.json
+	bun validate.sh
 
 format: bin/dprint
 	$(DPRINT) fmt
