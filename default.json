@@ -16,14 +16,21 @@
 				"/oven-sh/bun/",
 				"/oven/bun/"
 			]
+		},
+		{
+			"groupName": "pulumi",
+			"matchDepNames": [
+				"pulumi/pulumi$",
+				"@pulumi/pulumi"
+			]
 		}
 	],
 	"customManagers": [
 		{
 			"customType": "regex",
-			"fileMatch": [
-				".pulumi.version",
-				".versions/pulumi"
+			"managerFilePatterns": [
+				"/\\.pulumi\\.version/",
+				"/\\.versions\\/pulumi/"
 			],
 			"matchStrings": [
 				"(?<currentValue>\\S+)"
@@ -34,9 +41,9 @@
 		},
 		{
 			"customType": "regex",
-			"fileMatch": [
-        ".versions/kubernetes",
-				".versions/kubectl"
+			"managerFilePatterns": [
+				"/\\.versions\\/kubernetes/",
+				"/\\.versions\\/kubectl/"
 			],
 			"matchStrings": [
 				"(?<currentValue>\\S+)"
