@@ -17,6 +17,6 @@ bin/dprint: | .make/dprint/install.sh
 	cp $< $@
 
 .make/dprint/install.sh:
-	mkdir -p $(dir $@)
+	@mkdir -p $(dir $@)
 	curl -fsSL https://dprint.dev/install.sh -o $@
-	chmod +x $@
+	@chmod +x $@
