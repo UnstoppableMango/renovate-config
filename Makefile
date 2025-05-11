@@ -1,4 +1,5 @@
-DPRINT_VERSION ?= 0.49.0 # renovate: datasource=github-tags depName=dprint/dprint
+# renovate: datasource=github-tags depName=dprint/dprint
+DPRINT_VERSION ?= 0.49.0
 DPRINT := ${CURDIR}/bin/dprint
 
 # https://github.com/oven-sh/bun/issues/7034
@@ -16,6 +17,6 @@ bin/dprint: | .make/dprint/install.sh
 	cp $< $@
 
 .make/dprint/install.sh:
-	mkdir -p $(dir $@)
+	@mkdir -p $(dir $@)
 	curl -fsSL https://dprint.dev/install.sh -o $@
-	chmod +x $@
+	@chmod +x $@
