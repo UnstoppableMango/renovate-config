@@ -16,6 +16,9 @@ bin/dprint: | .make/dprint/install.sh
 .git/hooks/pre-commit: .githooks/pre-commit
 	cp $< $@
 
+.vscode/settings.json: hack/vscode-settings.json
+	cp $< $@
+
 .make/dprint/install.sh:
 	@mkdir -p $(dir $@)
 	curl -fsSL https://dprint.dev/install.sh -o $@

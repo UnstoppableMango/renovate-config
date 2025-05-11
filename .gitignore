@@ -1,3 +1,5 @@
 bin/
 .make/
 node_modules/
+.vscode/*
+!.vscode/extensions.json

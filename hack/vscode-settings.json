@@ -1,0 +1,6 @@
+{
+  "$schema": "vscode://schemas/settings/user",
+  "shellcheck.ignorePatterns": {
+    "validate.sh": true
+  }
+}
