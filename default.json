@@ -29,6 +29,19 @@
 		{
 			"customType": "regex",
 			"managerFilePatterns": [
+				"/\\.bun-version/",
+				"/\\.versions\\/bun/"
+			],
+			"matchStrings": [
+				"(?<currentValue>\\S+)"
+			],
+			"depNameTemplate": "oven-sh/bun",
+			"datasourceTemplate": "github-releases",
+			"extractVersionTemplate": "^bun-v(?<version>.*)"
+		},
+		{
+			"customType": "regex",
+			"managerFilePatterns": [
 				"/\\.pulumi\\.version/",
 				"/\\.versions\\/pulumi/"
 			],
