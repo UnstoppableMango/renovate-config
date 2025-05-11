@@ -3,3 +3,4 @@ bin/
 node_modules/
 .vscode/*
 !.vscode/extensions.json
+_bun
