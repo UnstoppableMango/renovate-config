@@ -64,6 +64,17 @@
 			"depNameTemplate": "kubernetes/kubernetes",
 			"datasourceTemplate": "github-tags",
 			"extractVersionTemplate": "^v(?<version>.*)"
+		},
+		{
+			"customType": "regex",
+			"managerFilePatterns": [
+				"/\\.versions\\/dprint/"
+			],
+			"matchStrings": [
+				"(?<currentValue>\\S+)"
+			],
+			"depNameTemplate": "dprint/dprint",
+			"datasourceTemplate": "github-tags"
 		}
 	]
 }
