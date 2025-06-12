@@ -68,6 +68,18 @@
 		{
 			"customType": "regex",
 			"managerFilePatterns": [
+				"/\\.versions\\/buf/"
+			],
+			"matchStrings": [
+				"(?<currentValue>\\S+)"
+			],
+			"depNameTemplate": "bufbuild/buf",
+			"datasourceTemplate": "github-tags",
+			"extractVersionTemplate": "^v(?<version>.*)"
+		},
+		{
+			"customType": "regex",
+			"managerFilePatterns": [
 				"/\\.versions\\/dprint/"
 			],
 			"matchStrings": [
