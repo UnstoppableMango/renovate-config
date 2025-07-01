@@ -1,5 +1,5 @@
 # renovate: datasource=github-tags depName=dprint/dprint
-DPRINT_VERSION ?= 0.50.0
+DPRINT_VERSION ?= 0.50.1
 DPRINT := ${CURDIR}/bin/dprint
 
 # https://github.com/oven-sh/bun/issues/7034
