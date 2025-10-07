@@ -23,6 +23,6 @@ jobs:
     steps:
       - uses: actions/checkout@v5
 
-      - uses: dprint/check@v1
+      - uses: dprint/check@v2.3
         with:
           config-path: .dprint.jsonc
