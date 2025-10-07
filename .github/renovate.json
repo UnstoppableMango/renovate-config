@@ -3,10 +3,8 @@
 	"extends": [
 		"config:recommended",
 		"customManagers:githubActionsVersions",
-		"customManagers:makefileVersions"
+		"customManagers:makefileVersions",
+		"schedule:monthly"
 	],
-	"timezone": "America/Chicago",
-	"schedule": [
-		"before 4am on the first day of the month"
-	]
+	"timezone": "America/Chicago"
 }
