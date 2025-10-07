@@ -1,5 +1,6 @@
 {
 	"$schema": "https://docs.renovatebot.com/renovate-schema.json",
+	"description": "Manages versions in a Pulumi.yaml file similar to built-in YAML presets",
 	"customManagers": [
 		{
 			"customType": "regex",
