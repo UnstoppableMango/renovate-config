@@ -1,6 +1,6 @@
 # UnstoppableMango's Renovate Presets
 
-[Shareable Config Presets](https://docs.renovatebot.com/config-presets/#github-hosted-presets) for renovate stuff I find myself copy-pasting everywhere.
+[Shareable Config Presets](https://docs.renovatebot.com/config-presets/#github-hosted-presets) for renovate stuff I copy-paste everywhere.
 
 ## Usage
 

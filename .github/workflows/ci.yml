@@ -11,8 +11,18 @@ jobs:
     steps:
       - uses: actions/checkout@v5
 
-      - uses: actions/setup-node@v5
+      - uses: oven-sh/setup-bun@v2
         with:
-          node-version-file: .nvmrc
+          bun-version: latest
 
       - run: make validate
+
+  lint:
+    name: Lint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: dprint/check@v2.3
+        with:
+          config-path: .dprint.jsonc
