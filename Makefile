@@ -1,12 +1,11 @@
 # renovate: datasource=github-tags depName=dprint/dprint
 DPRINT_VERSION ?= 0.50.2
-DPRINT := ${CURDIR}/bin/dprint
+DPRINT ?= ${CURDIR}/bin/dprint
 
-# https://github.com/oven-sh/bun/issues/7034
 validate:
-	npx --yes --package renovate -- renovate-config-validator --strict default.json
+	bunx --yes --package renovate -- renovate-config-validator --strict default.json
 
-format: bin/dprint
+format: $(DPRINT)
 	$(DPRINT) fmt
 
 bin/dprint: | .make/dprint/install.sh
