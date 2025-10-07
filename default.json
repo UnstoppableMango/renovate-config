@@ -4,8 +4,7 @@
 		"config:recommended",
 		"customManagers:githubActionsVersions",
 		"customManagers:makefileVersions",
-		"schedule:monthly",
-		"local>/presets/pulumi-yaml"
+		"schedule:monthly"
 	],
 	"timezone": "America/Chicago",
 	"packageRules": [
