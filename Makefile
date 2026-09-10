@@ -1,5 +1,5 @@
 # renovate: datasource=github-tags depName=dprint/dprint
-DPRINT_VERSION ?= 0.50.2
+DPRINT_VERSION ?= 0.57.4
 DPRINT ?= ${CURDIR}/bin/dprint
 
 validate:
