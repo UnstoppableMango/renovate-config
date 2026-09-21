@@ -1,0 +1,18 @@
+{
+	"$schema": "https://docs.renovatebot.com/renovate-schema.json",
+	"description": "Commits dependency updates as deps: so release-please cuts a release, except GitHub Actions pins",
+	"semanticCommits": "enabled",
+	"packageRules": [
+		{
+			"matchPackageNames": ["*"],
+			"semanticCommitType": "deps",
+			"semanticCommitScope": null
+		},
+		{
+			"description": "CI pins do not change what is released",
+			"matchManagers": ["github-actions"],
+			"semanticCommitType": "chore",
+			"semanticCommitScope": "deps"
+		}
+	]
+}
