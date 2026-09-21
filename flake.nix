@@ -1,5 +1,5 @@
 {
-  description = "A Nix flake";
+  description = "Some renovate config";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
@@ -20,7 +20,10 @@
     inputs@{ flake-parts, ... }:
     flake-parts.lib.mkFlake { inherit inputs; } {
       systems = import inputs.systems;
-      imports = [ inputs.treefmt-nix.flakeModule ];
+
+      imports = with inputs; [
+        treefmt-nix.flakeModule
+      ];
 
       perSystem =
         { pkgs, ... }:
@@ -32,12 +35,10 @@
             ];
           };
 
-          legacyPackages.hooks = {
-
-          };
-
           treefmt.programs = {
+            deadnix.enable = true;
             nixfmt.enable = true;
+            statix.enable = true;
           };
         };
     };
