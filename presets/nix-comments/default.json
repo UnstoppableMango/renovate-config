@@ -1,0 +1,13 @@
+{
+	"$schema": "https://docs.renovatebot.com/renovate-schema.json",
+	"description": "Manages versions in .nix files annotated with a # renovate: comment on the line above. Renovate cannot refresh an adjacent hash, so PRs need a hash fix before merge.",
+	"customManagers": [
+		{
+			"customType": "regex",
+			"managerFilePatterns": ["/\\.nix$/"],
+			"matchStrings": [
+				"# renovate: datasource=(?<datasource>[a-zA-Z0-9-._]+?) depName=(?<depName>[^\\s]+?)(?: (?:lookupName|packageName)=(?<packageName>[^\\s]+?))?(?: versioning=(?<versioning>[^\\s]+?))?(?: extractVersion=(?<extractVersion>[^\\s]+?))?\\s+[A-Za-z0-9_]+?\\s*=\\s*\"(?<currentValue>[^\"]+)\";"
+			]
+		}
+	]
+}
