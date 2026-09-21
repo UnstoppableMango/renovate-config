@@ -35,8 +35,8 @@ Pin a preset to a release by appending the tag:
 }
 ```
 
-release-please owns `CHANGELOG.md` and `version.txt`.
-Never hand-edit them; each release PR rewrites them.
+release-please owns `CHANGELOG.md`.
+Never hand-edit it; each release PR rewrites it.
 
 ## Development
 
