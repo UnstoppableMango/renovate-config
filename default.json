@@ -10,29 +10,18 @@
 	"packageRules": [
 		{
 			"groupName": "bun",
-			"matchPackageNames": [
-				"/oven-sh/bun/",
-				"/oven/bun/"
-			]
+			"matchPackageNames": ["/oven-sh/bun/", "/oven/bun/"]
 		},
 		{
 			"groupName": "pulumi",
-			"matchDepNames": [
-				"pulumi/pulumi$",
-				"@pulumi/pulumi"
-			]
+			"matchDepNames": ["pulumi/pulumi$", "@pulumi/pulumi"]
 		}
 	],
 	"customManagers": [
 		{
 			"customType": "regex",
-			"managerFilePatterns": [
-				"/\\.bun-version/",
-				"/\\.versions\\/bun/"
-			],
-			"matchStrings": [
-				"(?<currentValue>\\S+)"
-			],
+			"managerFilePatterns": ["/\\.bun-version/", "/\\.versions\\/bun/"],
+			"matchStrings": ["(?<currentValue>\\S+)"],
 			"depNameTemplate": "oven-sh/bun",
 			"datasourceTemplate": "github-releases",
 			"extractVersionTemplate": "^bun-v(?<version>.*)"
@@ -43,9 +32,7 @@
 				"/\\.pulumi\\.version/",
 				"/\\.versions\\/pulumi/"
 			],
-			"matchStrings": [
-				"(?<currentValue>\\S+)"
-			],
+			"matchStrings": ["(?<currentValue>\\S+)"],
 			"depNameTemplate": "pulumi/pulumi",
 			"datasourceTemplate": "github-tags",
 			"extractVersionTemplate": "^v(?<version>.*)"
@@ -56,33 +43,23 @@
 				"/\\.versions\\/kubernetes/",
 				"/\\.versions\\/kubectl/"
 			],
-			"matchStrings": [
-				"(?<currentValue>\\S+)"
-			],
+			"matchStrings": ["(?<currentValue>\\S+)"],
 			"depNameTemplate": "kubernetes/kubernetes",
 			"datasourceTemplate": "github-tags",
 			"extractVersionTemplate": "^v(?<version>.*)"
 		},
 		{
 			"customType": "regex",
-			"managerFilePatterns": [
-				"/\\.versions\\/buf/"
-			],
-			"matchStrings": [
-				"(?<currentValue>\\S+)"
-			],
+			"managerFilePatterns": ["/\\.versions\\/buf/"],
+			"matchStrings": ["(?<currentValue>\\S+)"],
 			"depNameTemplate": "bufbuild/buf",
 			"datasourceTemplate": "github-tags",
 			"extractVersionTemplate": "^v(?<version>.*)"
 		},
 		{
 			"customType": "regex",
-			"managerFilePatterns": [
-				"/\\.versions\\/dprint/"
-			],
-			"matchStrings": [
-				"(?<currentValue>\\S+)"
-			],
+			"managerFilePatterns": ["/\\.versions\\/dprint/"],
+			"matchStrings": ["(?<currentValue>\\S+)"],
 			"depNameTemplate": "dprint/dprint",
 			"datasourceTemplate": "github-tags"
 		}
