@@ -30,6 +30,7 @@
         {
           devShells.default = pkgs.mkShellNoCC {
             packages = with pkgs; [
+              bun
               gnumake
               nixfmt
             ];
