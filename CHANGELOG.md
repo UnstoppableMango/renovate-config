@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.0](https://github.com/UnstoppableMango/renovate-config/compare/v1.0.0...v1.0.0) (2026-09-21)
+
+
+### Continuous Integration
+
+* use unmango/actions setup-nix ([#46](https://github.com/UnstoppableMango/renovate-config/issues/46)) ([1615447](https://github.com/UnstoppableMango/renovate-config/commit/16154472bcf1d0271c4e3a1962d69fe77d4c339a))
+
 ## 1.0.0 (2026-09-21)
 
 
