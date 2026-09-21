@@ -62,6 +62,24 @@
 			"matchStrings": ["(?<currentValue>\\S+)"],
 			"depNameTemplate": "dprint/dprint",
 			"datasourceTemplate": "github-tags"
+		},
+		{
+			"customType": "regex",
+			"managerFilePatterns": ["/\\.versions\\/devctl/"],
+			"matchStrings": ["(?<currentValue>\\S+)"],
+			"depNameTemplate": "unmango/devctl",
+			"datasourceTemplate": "github-releases",
+			"extractVersionTemplate": "^v(?<version>.*)"
+		},
+		{
+			"customType": "regex",
+			"description": "dprint versions passed to dprint/check in workflows",
+			"managerFilePatterns": ["/(^|/)\\.github/workflows/[^/]+\\.ya?ml$/"],
+			"matchStrings": [
+				"(?:dprint-version|DPRINT_VERSION):\\s*[\"']?(?<currentValue>\\d[^\\s\"']*)"
+			],
+			"depNameTemplate": "dprint/dprint",
+			"datasourceTemplate": "github-tags"
 		}
 	]
 }
