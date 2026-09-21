@@ -7,6 +7,12 @@
 		"schedule:monthly"
 	],
 	"timezone": "America/Chicago",
+	"nix": {
+		"enabled": true,
+		"lockFileMaintenance": {
+			"enabled": true
+		}
+	},
 	"packageRules": [
 		{
 			"groupName": "bun",
