@@ -1,5 +1,7 @@
+PRESETS := default.json $(wildcard presets/*/default.json)
+
 validate:
-	bunx --yes --package renovate -- renovate-config-validator --strict default.json
+	bunx --yes --package renovate -- renovate-config-validator --strict $(PRESETS)
 
 format:
 	nix fmt
