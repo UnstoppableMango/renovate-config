@@ -36,10 +36,22 @@
             ];
           };
 
-          treefmt.programs = {
-            deadnix.enable = true;
-            nixfmt.enable = true;
-            statix.enable = true;
+          treefmt = {
+            programs = {
+              actionlint.enable = true;
+              deadnix.enable = true;
+              nixfmt.enable = true;
+              prettier.enable = true;
+              shfmt.enable = true;
+              statix.enable = true;
+            };
+
+            settings.formatter.prettier.options = [ "--use-tabs" ];
+            settings.global.excludes = [
+              "LICENSE"
+              "*-lock.json"
+              "flake.lock"
+            ];
           };
         };
     };

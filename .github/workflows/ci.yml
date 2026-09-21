@@ -23,6 +23,6 @@ jobs:
     steps:
       - uses: actions/checkout@v7
 
-      - uses: dprint/check@v2.5
-        with:
-          config-path: .dprint.jsonc
+      - uses: DeterminateSystems/nix-installer-action@main
+
+      - run: make lint
