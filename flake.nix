@@ -51,6 +51,7 @@
               "LICENSE"
               "*-lock.json"
               "flake.lock"
+              "CHANGELOG.md"
             ];
           };
         };

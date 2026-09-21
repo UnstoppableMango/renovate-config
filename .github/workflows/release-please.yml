@@ -1,0 +1,22 @@
+name: Release Please
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  release:
+    # Authenticates as the thecluster-bot GitHub App rather than with
+    # GITHUB_TOKEN, so the release PR triggers CI, and rather than with a PAT,
+    # so the commits it pushes are signed.
+    uses: unmango/actions/.github/workflows/release-please.yml@3ec4ed5a6af9c00f6a39e079df488573c77ebda6 # v1.0.1
+    with:
+      app-client-id: ${{ vars.RELEASE_APP_CLIENT_ID }}
+      config-file: release-please-config.json
+      manifest-file: .release-please-manifest.json
+    secrets:
+      app-private-key: ${{ secrets.RELEASE_APP_PRIVATE_KEY }}

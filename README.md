@@ -24,6 +24,20 @@ Add any of these to `extends` alongside the default preset.
 | `github>UnstoppableMango/renovate-config//presets/nix-comments`   | Updates `.nix` values that have a `# renovate: datasource=... depName=...` comment on the line above. Adjacent hashes are not refreshed. |
 | `github>UnstoppableMango/renovate-config//presets/pulumi-yaml`    | Updates `Pulumi.yaml` values that have a `# renovate:` comment on the line above.                                                        |
 
+## Versioning
+
+release-please tags each release as `vX.Y.Z`.
+Pin a preset to a release by appending the tag:
+
+```json
+{
+	"extends": ["github>UnstoppableMango/renovate-config#v1.0.0"]
+}
+```
+
+release-please owns `CHANGELOG.md`.
+Never hand-edit it; each release PR rewrites it.
+
 ## Development
 
 Run `renovate-config-validator` against `default.json` and every `presets/*/default.json`.
