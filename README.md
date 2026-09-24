@@ -1,5 +1,7 @@
 # UnstoppableMango's Renovate Presets
 
+[![Hercules CI](https://hercules-ci.com/api/v1/site/github/account/UnstoppableMango/project/renovate-config/badge)](https://hercules-ci.com/github/UnstoppableMango/renovate-config)
+
 [Shareable Config Presets](https://docs.renovatebot.com/config-presets/#github-hosted-presets) for renovate stuff I copy-paste everywhere.
 
 ## Usage
