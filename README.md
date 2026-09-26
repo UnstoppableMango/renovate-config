@@ -18,11 +18,13 @@ It extends `config:recommended` and `schedule:weekly`, enables the nix manager w
 
 Add any of these to `extends` alongside the default preset.
 
-| Preset                                                            | Purpose                                                                                                                                  |
-| ----------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
-| `github>UnstoppableMango/renovate-config//presets/release-please` | Commits dependency updates as `deps:` so release-please cuts a release. GitHub Actions pins stay `chore(deps):`.                         |
-| `github>UnstoppableMango/renovate-config//presets/nix-comments`   | Updates `.nix` values that have a `# renovate: datasource=... depName=...` comment on the line above. Adjacent hashes are not refreshed. |
-| `github>UnstoppableMango/renovate-config//presets/pulumi-yaml`    | Updates `Pulumi.yaml` values that have a `# renovate:` comment on the line above.                                                        |
+| Preset                                                   | Purpose                                                                                                                                  |
+| -------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
+| `github>UnstoppableMango/renovate-config:release-please` | Commits dependency updates as `deps:` so release-please cuts a release. GitHub Actions pins stay `chore(deps):`.                         |
+| `github>UnstoppableMango/renovate-config:nix-comments`   | Updates `.nix` values that have a `# renovate: datasource=... depName=...` comment on the line above. Adjacent hashes are not refreshed. |
+| `github>UnstoppableMango/renovate-config:pulumi-yaml`    | Updates `Pulumi.yaml` values that have a `# renovate:` comment on the line above.                                                        |
+
+Each opt-in preset is a JSON file at the repository root, so Renovate resolves `:<name>` to `<name>.json`.
 
 ## Versioning
 
@@ -40,7 +42,7 @@ Never hand-edit it; each release PR rewrites it.
 
 ## Development
 
-Run `renovate-config-validator` against `default.json` and every `presets/*/default.json`.
+Run `renovate-config-validator` against `default.json` and every opt-in preset.
 
 ```shell
 make validate

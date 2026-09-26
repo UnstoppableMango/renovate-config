@@ -1,4 +1,4 @@
-PRESETS := default.json $(wildcard presets/*/default.json)
+PRESETS := $(filter-out release-please-config.json,$(wildcard *.json))
 
 validate:
 	bunx --yes --package renovate -- renovate-config-validator --strict $(PRESETS)
