@@ -1,5 +1,22 @@
 # Changelog
 
+## [1.0.0](https://github.com/UnstoppableMango/renovate-config/compare/v1.0.0...v1.0.0) (2026-09-26)
+
+
+### Bug Fixes
+
+* move opt-in presets to root-level files ([#50](https://github.com/UnstoppableMango/renovate-config/issues/50)) ([b5ba84a](https://github.com/UnstoppableMango/renovate-config/commit/b5ba84a2baef454346f03e6b39967bb9373bcd0e))
+
+
+### Documentation
+
+* add Hercules CI badge ([#49](https://github.com/UnstoppableMango/renovate-config/issues/49)) ([0222546](https://github.com/UnstoppableMango/renovate-config/commit/022254695c2eb8d1b468358b868ab862d087eb84))
+
+
+### Continuous Integration
+
+* use unmango/actions setup-nix ([#46](https://github.com/UnstoppableMango/renovate-config/issues/46)) ([1615447](https://github.com/UnstoppableMango/renovate-config/commit/16154472bcf1d0271c4e3a1962d69fe77d4c339a))
+
 ## [1.0.0](https://github.com/UnstoppableMango/renovate-config/compare/v1.0.0...v1.0.0) (2026-09-21)
 
 
