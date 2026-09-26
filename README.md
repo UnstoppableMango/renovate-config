@@ -18,8 +18,8 @@ It extends `config:recommended` and `schedule:weekly`, enables the nix manager w
 
 Add any of these to `extends` alongside the default preset.
 
-| Preset                                                  | Purpose                                                                                                                                  |
-| ------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
+| Preset                                                   | Purpose                                                                                                                                  |
+| -------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
 | `github>UnstoppableMango/renovate-config:release-please` | Commits dependency updates as `deps:` so release-please cuts a release. GitHub Actions pins stay `chore(deps):`.                         |
 | `github>UnstoppableMango/renovate-config:nix-comments`   | Updates `.nix` values that have a `# renovate: datasource=... depName=...` comment on the line above. Adjacent hashes are not refreshed. |
 | `github>UnstoppableMango/renovate-config:pulumi-yaml`    | Updates `Pulumi.yaml` values that have a `# renovate:` comment on the line above.                                                        |
