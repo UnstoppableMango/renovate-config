@@ -7,6 +7,9 @@
 		"schedule:weekly"
 	],
 	"timezone": "America/Chicago",
+	"lockFileMaintenance": {
+		"schedule": ["before 4am"]
+	},
 	"nix": {
 		"enabled": true,
 		"lockFileMaintenance": {

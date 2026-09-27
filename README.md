@@ -14,7 +14,7 @@ To use the [default](./default.json) preset:
 }
 ```
 
-It extends `config:recommended` and `schedule:weekly`, enables the nix manager with `flake.lock` maintenance, and adds regex managers for `.versions/*` files and `dprint-version` workflow inputs.
+It extends `config:recommended` and `schedule:weekly`, enables the nix manager with `flake.lock` maintenance on a daily schedule, and adds regex managers for `.versions/*` files and `dprint-version` workflow inputs.
 
 ## Opt-in presets
 
