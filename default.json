@@ -8,13 +8,11 @@
 	],
 	"timezone": "America/Chicago",
 	"lockFileMaintenance": {
+		"enabled": true,
 		"schedule": ["before 4am"]
 	},
 	"nix": {
-		"enabled": true,
-		"lockFileMaintenance": {
-			"enabled": true
-		}
+		"enabled": true
 	},
 	"packageRules": [
 		{
