@@ -13,7 +13,7 @@ jobs:
     # Authenticates as the thecluster-bot GitHub App rather than with
     # GITHUB_TOKEN, so the release PR triggers CI, and rather than with a PAT,
     # so the commits it pushes are signed.
-    uses: unmango/actions/.github/workflows/release-please.yml@c984cd3bb34111da20c9366bc2beb72674960f64 # v1.1.0
+    uses: unmango/actions/.github/workflows/release-please.yml@389dda3b9e44477f790e76d5474b700c1bb9b82d # v1.3.0
     with:
       app-client-id: ${{ vars.RELEASE_APP_CLIENT_ID }}
       config-file: release-please-config.json
