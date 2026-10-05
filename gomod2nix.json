@@ -1,0 +1,19 @@
+{
+	"$schema": "https://docs.renovatebot.com/renovate-schema.json",
+	"description": "Regenerates gomod2nix.toml in the directory given as the argument, e.g. gomod2nix(nix), after a Go module update. Uses the gomod2nix commit the flakes pin, so the file keeps its format. The self-hosted config must allow the command in allowedCommands.",
+	"packageRules": [
+		{
+			"matchManagers": ["gomod"],
+			"postUpgradeTasks": {
+				"commands": [
+					"go run github.com/nix-community/gomod2nix@v1.7.1-0.20260208211840-1201ddd1279c --dir . --outdir {{arg0}}"
+				],
+				"fileFilters": ["**/gomod2nix.toml"],
+				"executionMode": "branch",
+				"installTools": {
+					"golang": {}
+				}
+			}
+		}
+	]
+}
