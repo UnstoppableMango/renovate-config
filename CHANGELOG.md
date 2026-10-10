@@ -1,5 +1,30 @@
 # Changelog
 
+## [1.0.0](https://github.com/UnstoppableMango/renovate-config/compare/v1.0.0...v1.0.0) (2026-10-10)
+
+
+### Features
+
+* add a gomod2nix preset that regenerates gomod2nix.toml ([#59](https://github.com/UnstoppableMango/renovate-config/issues/59)) ([a3a5a95](https://github.com/UnstoppableMango/renovate-config/commit/a3a5a9598d584b7d9aa5c8f2fc05365ed1449d02))
+* add an opt-in automerge preset gated on status checks ([#62](https://github.com/UnstoppableMango/renovate-config/issues/62)) ([16becee](https://github.com/UnstoppableMango/renovate-config/commit/16becee4e74c0eb838499e3479e5ca8067ed503e))
+* enable lock file maintenance for every manager ([#55](https://github.com/UnstoppableMango/renovate-config/issues/55)) ([81b28dd](https://github.com/UnstoppableMango/renovate-config/commit/81b28ddbb250b4b3c98b1833fb578652c2183108))
+* run lock file maintenance daily ([#53](https://github.com/UnstoppableMango/renovate-config/issues/53)) ([11b7c62](https://github.com/UnstoppableMango/renovate-config/commit/11b7c62279f99e7d3206267741c79fc29d1ed1f5))
+
+
+### Bug Fixes
+
+* move opt-in presets to root-level files ([#50](https://github.com/UnstoppableMango/renovate-config/issues/50)) ([b5ba84a](https://github.com/UnstoppableMango/renovate-config/commit/b5ba84a2baef454346f03e6b39967bb9373bcd0e))
+
+
+### Documentation
+
+* add Hercules CI badge ([#49](https://github.com/UnstoppableMango/renovate-config/issues/49)) ([0222546](https://github.com/UnstoppableMango/renovate-config/commit/022254695c2eb8d1b468358b868ab862d087eb84))
+
+
+### Continuous Integration
+
+* use unmango/actions setup-nix ([#46](https://github.com/UnstoppableMango/renovate-config/issues/46)) ([1615447](https://github.com/UnstoppableMango/renovate-config/commit/16154472bcf1d0271c4e3a1962d69fe77d4c339a))
+
 ## [1.0.0](https://github.com/UnstoppableMango/renovate-config/compare/v1.0.0...v1.0.0) (2026-10-06)
 
 
