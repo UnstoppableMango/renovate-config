@@ -1,0 +1,18 @@
+{
+	"$schema": "https://docs.renovatebot.com/renovate-schema.json",
+	"description": "Regenerates a Nix nugetDeps lock after a NuGet update by running the repository's Go command given as the argument, e.g. nuget2nix(./tools/nugetdeps). The command restores the projects with dotnet and writes the lock, so it needs no Nix. Without a constraints.dotnet in the repository, installTools installs the latest stable SDK, so set it to an SDK of the major the projects build with. Like gomod2nix, the task runs from the branch's first upgrade, so a group mixing NuGet with another manager can skip it. The self-hosted config must allow the command in allowedCommands.",
+	"packageRules": [
+		{
+			"matchManagers": ["nuget"],
+			"postUpgradeTasks": {
+				"commands": ["go run {{arg0}}"],
+				"fileFilters": ["**/deps.json"],
+				"executionMode": "branch",
+				"installTools": {
+					"golang": {},
+					"dotnet": {}
+				}
+			}
+		}
+	]
+}
