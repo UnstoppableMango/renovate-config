@@ -6,23 +6,20 @@
 	"minimumReleaseAge": "3 days",
 	"rebaseWhen": "conflicted",
 	"automerge": true,
-	"automergeType": "pr",
 	"platformAutomerge": true,
 	"gitIgnoredAuthors": [
 		"359966661+unmango-renovate-fixup[bot]@users.noreply.github.com"
 	],
 	"stopUpdatingLabel": "renovate:needs-human",
 	"lockFileMaintenance": {
+		"description": "Overrides the default preset's daily window; lock maintenance has no release timestamp to age",
 		"enabled": true,
-		"schedule": ["* 0-5 * * 1"]
-	},
-	"vulnerabilityAlerts": {
-		"schedule": ["at any time"],
+		"schedule": ["* 0-5 * * 1"],
 		"minimumReleaseAge": null
 	},
 	"packageRules": [
 		{
-			"description": "deploys.json reuses this group name and slug",
+			"description": "Keep in sync with deploys.json",
 			"matchUpdateTypes": ["minor", "patch", "digest", "pin", "pinDigest"],
 			"groupName": "all non-major dependencies",
 			"groupSlug": "all-non-major"
@@ -39,7 +36,11 @@
 			"groupSlug": "flake-lock-maintenance"
 		},
 		{
-			"description": "Majors need a human",
+			"description": "git-refs gives flake inputs no release timestamp",
+			"matchManagers": ["nix"],
+			"minimumReleaseAgeBehaviour": "timestamp-optional"
+		},
+		{
 			"matchUpdateTypes": ["major"],
 			"automerge": false
 		}

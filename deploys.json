@@ -3,7 +3,7 @@
 	"description": "For repos whose main deploys: updates that deploy wait for a human, while flake.lock, GitHub Actions and dev tooling still automerge. Extend after nix-ci.",
 	"packageRules": [
 		{
-			"description": "A group automerges only when every update in it does, so deployed updates get their own",
+			"description": "A group automerges only when every update in it does",
 			"matchUpdateTypes": ["minor", "patch", "digest", "pin", "pinDigest"],
 			"automerge": false,
 			"groupName": "deployed non-major dependencies",
@@ -14,7 +14,7 @@
 			"automerge": false
 		},
 		{
-			"description": "Never deployed. Group name and slug match nix-ci.json",
+			"description": "Keep in sync with nix-ci.json",
 			"matchManagers": ["github-actions", "nix"],
 			"matchUpdateTypes": ["minor", "patch", "digest", "pin", "pinDigest"],
 			"automerge": true,
@@ -22,7 +22,6 @@
 			"groupSlug": "all-non-major"
 		},
 		{
-			"description": "Dev tooling",
 			"matchDepTypes": ["devDependencies"],
 			"matchUpdateTypes": ["minor", "patch", "digest", "pin", "pinDigest"],
 			"automerge": true,
@@ -30,7 +29,7 @@
 			"groupSlug": "all-non-major"
 		},
 		{
-			"description": "Workflow pins outside the github-actions manager",
+			"description": "Workflow inputs outside the github-actions manager",
 			"matchFileNames": [".github/workflows/**"],
 			"matchUpdateTypes": ["minor", "patch", "digest", "pin", "pinDigest"],
 			"automerge": true,
