@@ -31,7 +31,9 @@ A Nix repo extends `nix-ci` after the default preset, and a repo whose `main` de
 ```
 
 `nix-ci` opens four kinds of PR, all on Monday before 6 AM America/Chicago: `flake.lock` maintenance, all other lock file maintenance, all non-major updates, and each major on its own.
-Updates wait 3 days after release, except security fixes, which also skip the schedule.
+Updates wait 3 days after release.
+Vulnerability alert PRs skip both the wait and the schedule.
+Lock file maintenance and flake inputs, which have no release date, do not wait.
 Branches are rebased only when they conflict.
 Everything but majors automerges through GitHub's auto-merge once required checks pass.
 Commits from the `renovate-fixup` App do not stop Renovate updating a branch, and the `renovate:needs-human` label does.
@@ -52,7 +54,7 @@ Add any of these to `extends` alongside the default preset.
 | `github>UnstoppableMango/renovate-config:pulumi-yaml`                  | Updates `Pulumi.yaml` values that have a `# renovate:` comment on the line above.                                                                        |
 | `github>UnstoppableMango/renovate-config:gomod2nix(nix)`               | Regenerates `gomod2nix.toml` in the given directory after a Go module update. Needs the command in the self-hosted `allowedCommands`.                    |
 | `github>UnstoppableMango/renovate-config:nuget2nix(./tools/nugetdeps)` | Runs the given Go command after a NuGet update to regenerate the `nugetDeps` lock (`deps.json`). Needs the command in the self-hosted `allowedCommands`. |
-| `github>UnstoppableMango/renovate-config:automerge`                    | Deprecated: use `nix-ci`, plus `deploys` where `main` deploys.                                                                                           |
+| `github>UnstoppableMango/renovate-config:automerge`                    | Deprecated: use `nix-ci`, plus `deploys` where `main` deploys. `nix-ci` merges on required checks alone, so make every gate required first.              |
 
 Each opt-in preset is a JSON file at the repository root, so Renovate resolves `:<name>` to `<name>.json`.
 
