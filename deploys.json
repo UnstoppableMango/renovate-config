@@ -1,0 +1,46 @@
+{
+	"$schema": "https://docs.renovatebot.com/renovate-schema.json",
+	"description": "For repos whose main deploys: updates that deploy wait for a human, while flake.lock, GitHub Actions and dev tooling still automerge. Extend after nix-ci.",
+	"packageRules": [
+		{
+			"description": "A group automerges only when every update in it does, so deployed updates get their own",
+			"matchUpdateTypes": ["minor", "patch", "digest", "pin", "pinDigest"],
+			"automerge": false,
+			"groupName": "deployed non-major dependencies",
+			"groupSlug": "deployed-non-major"
+		},
+		{
+			"matchUpdateTypes": ["lockFileMaintenance"],
+			"automerge": false
+		},
+		{
+			"description": "Never deployed. Group name and slug match nix-ci.json",
+			"matchManagers": ["github-actions", "nix"],
+			"matchUpdateTypes": ["minor", "patch", "digest", "pin", "pinDigest"],
+			"automerge": true,
+			"groupName": "all non-major dependencies",
+			"groupSlug": "all-non-major"
+		},
+		{
+			"description": "Dev tooling",
+			"matchDepTypes": ["devDependencies"],
+			"matchUpdateTypes": ["minor", "patch", "digest", "pin", "pinDigest"],
+			"automerge": true,
+			"groupName": "all non-major dependencies",
+			"groupSlug": "all-non-major"
+		},
+		{
+			"description": "Workflow pins outside the github-actions manager",
+			"matchFileNames": [".github/workflows/**"],
+			"matchUpdateTypes": ["minor", "patch", "digest", "pin", "pinDigest"],
+			"automerge": true,
+			"groupName": "all non-major dependencies",
+			"groupSlug": "all-non-major"
+		},
+		{
+			"matchUpdateTypes": ["lockFileMaintenance"],
+			"matchManagers": ["nix"],
+			"automerge": true
+		}
+	]
+}

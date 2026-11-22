@@ -1,6 +1,6 @@
 {
 	"$schema": "https://docs.renovatebot.com/renovate-schema.json",
-	"description": "Automerges non-major updates once every status check passes. Extend this only in a repo whose CI enforces a coverage policy, so a failing gate blocks the merge.",
+	"description": "Deprecated: use nix-ci, plus deploys where main deploys. Automerges non-major updates once every status check passes. Extend this only in a repo whose CI enforces a coverage policy, so a failing gate blocks the merge.",
 	"automerge": true,
 	"automergeType": "pr",
 	"platformAutomerge": false,
