@@ -1,6 +1,6 @@
 {
 	"$schema": "https://docs.renovatebot.com/renovate-schema.json",
-	"description": "Holds back updates that deploy. Extend after nix-ci.",
+	"description": "Holds back updates that deploy. Extend after nix.",
 	"packageRules": [
 		{
 			"description": "A group automerges only when every update in it does",
@@ -14,7 +14,7 @@
 			"automerge": false
 		},
 		{
-			"description": "Keep in sync with nix-ci.json",
+			"description": "Keep in sync with nix.json",
 			"matchManagers": ["github-actions", "nix"],
 			"matchUpdateTypes": ["minor", "patch", "digest", "pin", "pinDigest"],
 			"automerge": true,

@@ -19,7 +19,7 @@
 	},
 	"packageRules": [
 		{
-			"description": "Keep in sync with nix-ci-deploys.json",
+			"description": "Keep in sync with nix-deploys.json",
 			"matchUpdateTypes": ["minor", "patch", "digest", "pin", "pinDigest"],
 			"groupName": "all non-major dependencies",
 			"groupSlug": "all-non-major"
