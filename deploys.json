@@ -1,6 +1,6 @@
 {
 	"$schema": "https://docs.renovatebot.com/renovate-schema.json",
-	"description": "For repos whose main deploys: updates that deploy wait for a human, while flake.lock, GitHub Actions and dev tooling still automerge. Extend after nix-ci.",
+	"description": "Holds back updates that deploy. Extend after nix-ci.",
 	"packageRules": [
 		{
 			"description": "A group automerges only when every update in it does",
@@ -29,7 +29,6 @@
 			"groupSlug": "all-non-major"
 		},
 		{
-			"description": "Workflow inputs outside the github-actions manager",
 			"matchFileNames": [".github/workflows/**"],
 			"matchUpdateTypes": ["minor", "patch", "digest", "pin", "pinDigest"],
 			"automerge": true,

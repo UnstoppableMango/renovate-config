@@ -1,6 +1,6 @@
 {
 	"$schema": "https://docs.renovatebot.com/renovate-schema.json",
-	"description": "Weekly grouped updates that automerge on green CI, for Nix repos. Extend after the default preset.",
+	"description": "Weekly grouped updates that automerge on green CI. Extend after the default preset.",
 	"timezone": "America/Chicago",
 	"schedule": ["* 0-5 * * 1"],
 	"minimumReleaseAge": "3 days",
@@ -12,7 +12,7 @@
 	],
 	"stopUpdatingLabel": "renovate:needs-human",
 	"lockFileMaintenance": {
-		"description": "Overrides the default preset's daily window; lock maintenance has no release timestamp to age",
+		"description": "Lock updates have no release timestamp",
 		"enabled": true,
 		"schedule": ["* 0-5 * * 1"],
 		"minimumReleaseAge": null
