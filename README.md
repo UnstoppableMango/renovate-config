@@ -18,14 +18,14 @@ It extends `config:recommended` and `schedule:weekly`, enables the nix manager, 
 
 ## Nix repos
 
-A Nix repo extends `nix-ci` after the default preset, and a repo whose `main` deploys also extends `deploys` after `nix-ci`:
+A Nix repo extends `nix-ci` after the default preset, and a repo whose `main` deploys also extends `nix-ci-deploys` after `nix-ci`:
 
 ```json
 {
 	"extends": [
 		"github>UnstoppableMango/renovate-config",
 		"github>UnstoppableMango/renovate-config:nix-ci",
-		"github>UnstoppableMango/renovate-config:deploys"
+		"github>UnstoppableMango/renovate-config:nix-ci-deploys"
 	]
 }
 ```
@@ -38,7 +38,7 @@ Branches are rebased only when they conflict.
 Everything but majors automerges through GitHub's auto-merge once required checks pass.
 Commits from the `renovate-fixup` App do not stop Renovate updating a branch, and the `renovate:needs-human` label does.
 
-`deploys` turns automerge off for updates that deploy, moving them into their own non-major group, while `flake.lock`, GitHub Actions, workflow pins, and `devDependencies` still automerge.
+`nix-ci-deploys` turns automerge off for updates that deploy, moving them into their own non-major group, while `flake.lock`, GitHub Actions, workflow pins, and `devDependencies` still automerge.
 Order matters: extended before `nix-ci`, its groups are overwritten.
 
 Drop per-repo schedules, such as a monthly `schedule`, when adopting `nix-ci`; it owns the schedule.
