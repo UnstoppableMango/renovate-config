@@ -1,0 +1,48 @@
+{
+	"$schema": "https://docs.renovatebot.com/renovate-schema.json",
+	"description": "Weekly grouped updates that automerge on green CI. Extend after the default preset.",
+	"timezone": "America/Chicago",
+	"schedule": ["* 0-5 * * 1"],
+	"minimumReleaseAge": "3 days",
+	"rebaseWhen": "conflicted",
+	"automerge": true,
+	"platformAutomerge": true,
+	"gitIgnoredAuthors": [
+		"359966661+unmango-renovate-fixup[bot]@users.noreply.github.com"
+	],
+	"stopUpdatingLabel": "renovate:needs-human",
+	"lockFileMaintenance": {
+		"description": "Lock updates have no release timestamp",
+		"enabled": true,
+		"schedule": ["* 0-5 * * 1"],
+		"minimumReleaseAge": null
+	},
+	"packageRules": [
+		{
+			"description": "Keep in sync with nix-deploys.json",
+			"matchUpdateTypes": ["minor", "patch", "digest", "pin", "pinDigest"],
+			"groupName": "all non-major dependencies",
+			"groupSlug": "all-non-major"
+		},
+		{
+			"matchUpdateTypes": ["lockFileMaintenance"],
+			"groupName": "lock file maintenance",
+			"groupSlug": "lock-file-maintenance"
+		},
+		{
+			"matchUpdateTypes": ["lockFileMaintenance"],
+			"matchManagers": ["nix"],
+			"groupName": "flake.lock maintenance",
+			"groupSlug": "flake-lock-maintenance"
+		},
+		{
+			"description": "git-refs gives flake inputs no release timestamp",
+			"matchManagers": ["nix"],
+			"minimumReleaseAgeBehaviour": "timestamp-optional"
+		},
+		{
+			"matchUpdateTypes": ["major"],
+			"automerge": false
+		}
+	]
+}

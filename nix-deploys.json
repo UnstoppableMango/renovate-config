@@ -1,0 +1,44 @@
+{
+	"$schema": "https://docs.renovatebot.com/renovate-schema.json",
+	"description": "Holds back updates that deploy. Extend after nix.",
+	"packageRules": [
+		{
+			"description": "A group automerges only when every update in it does",
+			"matchUpdateTypes": ["minor", "patch", "digest", "pin", "pinDigest"],
+			"automerge": false,
+			"groupName": "deployed non-major dependencies",
+			"groupSlug": "deployed-non-major"
+		},
+		{
+			"matchUpdateTypes": ["lockFileMaintenance"],
+			"automerge": false
+		},
+		{
+			"description": "Keep in sync with nix.json",
+			"matchManagers": ["github-actions", "nix"],
+			"matchUpdateTypes": ["minor", "patch", "digest", "pin", "pinDigest"],
+			"automerge": true,
+			"groupName": "all non-major dependencies",
+			"groupSlug": "all-non-major"
+		},
+		{
+			"matchDepTypes": ["devDependencies"],
+			"matchUpdateTypes": ["minor", "patch", "digest", "pin", "pinDigest"],
+			"automerge": true,
+			"groupName": "all non-major dependencies",
+			"groupSlug": "all-non-major"
+		},
+		{
+			"matchFileNames": [".github/workflows/**"],
+			"matchUpdateTypes": ["minor", "patch", "digest", "pin", "pinDigest"],
+			"automerge": true,
+			"groupName": "all non-major dependencies",
+			"groupSlug": "all-non-major"
+		},
+		{
+			"matchUpdateTypes": ["lockFileMaintenance"],
+			"matchManagers": ["nix"],
+			"automerge": true
+		}
+	]
+}

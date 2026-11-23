@@ -16,6 +16,33 @@ To use the [default](./default.json) preset:
 
 It extends `config:recommended` and `schedule:weekly`, enables the nix manager, runs daily lock file maintenance for every manager, and adds regex managers for `.versions/*` files and `dprint-version` workflow inputs.
 
+## Nix repos
+
+A Nix repo extends `nix` after the default preset, and a repo whose `main` deploys also extends `nix-deploys` after `nix`:
+
+```json
+{
+	"extends": [
+		"github>UnstoppableMango/renovate-config",
+		"github>UnstoppableMango/renovate-config:nix",
+		"github>UnstoppableMango/renovate-config:nix-deploys"
+	]
+}
+```
+
+`nix` opens four kinds of PR, all on Monday before 6 AM America/Chicago: `flake.lock` maintenance, all other lock file maintenance, all non-major updates, and each major on its own.
+Updates wait 3 days after release.
+Vulnerability alert PRs skip both the wait and the schedule.
+Lock file maintenance and flake inputs, which have no release date, do not wait.
+Branches are rebased only when they conflict.
+Everything but majors automerges through GitHub's auto-merge once required checks pass.
+Commits from the `renovate-fixup` App do not stop Renovate updating a branch, and the `renovate:needs-human` label does.
+
+`nix-deploys` turns automerge off for updates that deploy, moving them into their own non-major group, while `flake.lock`, GitHub Actions, workflow pins, and `devDependencies` still automerge.
+Order matters: extended before `nix`, its groups are overwritten.
+
+Drop per-repo schedules, such as a monthly `schedule`, when adopting `nix`; it owns the schedule.
+
 ## Opt-in presets
 
 Add any of these to `extends` alongside the default preset.
@@ -27,7 +54,7 @@ Add any of these to `extends` alongside the default preset.
 | `github>UnstoppableMango/renovate-config:pulumi-yaml`                  | Updates `Pulumi.yaml` values that have a `# renovate:` comment on the line above.                                                                        |
 | `github>UnstoppableMango/renovate-config:gomod2nix(nix)`               | Regenerates `gomod2nix.toml` in the given directory after a Go module update. Needs the command in the self-hosted `allowedCommands`.                    |
 | `github>UnstoppableMango/renovate-config:nuget2nix(./tools/nugetdeps)` | Runs the given Go command after a NuGet update to regenerate the `nugetDeps` lock (`deps.json`). Needs the command in the self-hosted `allowedCommands`. |
-| `github>UnstoppableMango/renovate-config:automerge`                    | Automerges non-major updates once every status check passes. Extend it only where CI enforces a coverage policy.                                         |
+| `github>UnstoppableMango/renovate-config:automerge`                    | Automerges non-major updates once every status check passes. Extend it only where CI enforces a coverage policy. Nix repos use `nix` instead.            |
 
 Each opt-in preset is a JSON file at the repository root, so Renovate resolves `:<name>` to `<name>.json`.
 
