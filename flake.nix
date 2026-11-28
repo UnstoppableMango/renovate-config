@@ -14,6 +14,13 @@
       url = "github:numtide/treefmt-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    mangonix = {
+      url = "github:UnstoppableMango/nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-parts.follows = "flake-parts";
+      inputs.treefmt-nix.follows = "treefmt-nix";
+    };
   };
 
   outputs =
@@ -22,6 +29,7 @@
       systems = import inputs.systems;
 
       imports = with inputs; [
+        mangonix.flakeModules.ci
         treefmt-nix.flakeModule
       ];
 
