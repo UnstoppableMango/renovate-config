@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.2](https://github.com/UnstoppableMango/renovate-config/compare/v1.1.1...v1.1.2) (2026-11-28)
+
+
+### Continuous Integration
+
+* drop Lint, which repeats checks.treefmt ([#75](https://github.com/UnstoppableMango/renovate-config/issues/75)) ([3eb5f4e](https://github.com/UnstoppableMango/renovate-config/commit/3eb5f4ef6e91f6fe45fc5e7f2e0681a2a673609f)), closes [#68](https://github.com/UnstoppableMango/renovate-config/issues/68)
+
 ## [1.1.1](https://github.com/UnstoppableMango/renovate-config/compare/v1.1.0...v1.1.1) (2026-11-28)
 
 
