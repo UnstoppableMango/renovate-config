@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.1](https://github.com/UnstoppableMango/renovate-config/compare/v1.1.0...v1.1.1) (2026-11-28)
+
+
+### Continuous Integration
+
+* join Nix CI through flakeModules.ci and unmango/ci ([#73](https://github.com/UnstoppableMango/renovate-config/issues/73)) ([811c67d](https://github.com/UnstoppableMango/renovate-config/commit/811c67dac301aa7dd286615d5bc5a7782a955d33))
+
 ## [1.1.0](https://github.com/UnstoppableMango/renovate-config/compare/v1.0.0...v1.1.0) (2026-11-23)
 
 
