@@ -42,16 +42,3 @@ jobs:
           github_access_token: ${{ secrets.GITHUB_TOKEN }}
 
       - run: nix develop --command make validate
-
-  # Repeats checks.treefmt; goes once the ruleset requires `required` (UnstoppableMango/vcs#162).
-  lint:
-    name: Lint
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
-
-      - uses: unmango/actions/setup-nix@e8bbcbd12a2c521c5cb36957c00a7a8f4fe2e766 # v2.0.0
-        with:
-          github_access_token: ${{ secrets.GITHUB_TOKEN }}
-
-      - run: make lint
